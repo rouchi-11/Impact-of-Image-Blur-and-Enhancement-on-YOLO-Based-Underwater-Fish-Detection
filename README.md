@@ -23,21 +23,6 @@ Real underwater cameras produce degraded images — blur, colour shift, low cont
 
 Mixed training eliminates the performance gap with **zero inference overhead**.
 
----
-
-## Repository Structure
-
-```
-📦 underwater-fish-detection-yolo
-├── 📓 Code1_Phase1_Architecture_Blur_CLAHE.ipynb   ← Train YOLOv8n & YOLOv11n, test 6 blur conditions + CLAHE
-├── 📓 Code2_Phase2_Enhancement_Tuning.ipynb        ← CLAHE clip tuning, Unsharp Masking, combined pipeline
-├── 📓 Code3_Phase3_Mixed_Training_YOLOv8m.ipynb    ← Build mixed dataset, train YOLOv8m, evaluate + plots
-├── 🐍 dataset_builder.py                           ← Creates original / noisy / enhanced image variants
-└── 📄 README.md
-```
-
----
-
 ## Phases at a Glance
 
 **Phase 1** — Trained YOLOv8n and YOLOv11n on clean URPC2020. Evaluated on Gaussian blur (σ=1,3,5) and Motion blur (k=5,10,15). YOLOv11n was faster and more accurate. Severe blur caused up to −11.23% mAP50. CLAHE at clipLimit=3.0 made things worse.
